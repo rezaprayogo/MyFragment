@@ -1,5 +1,6 @@
 package com.example.myfragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -22,7 +23,7 @@ public class FragmentC extends Fragment {
     }
 
     TextView tvName, tvDesc;
-    Button btnDialog;
+    Button btnDialog,btnAct;
     public static String EXTRA_NAME = "extra_name";
     private String description;
 
@@ -53,6 +54,14 @@ public class FragmentC extends Fragment {
                 FragmentDialog dialog = new FragmentDialog();
                 FragmentManager fm = getChildFragmentManager();
                 dialog.show(fm, FragmentDialog.class.getSimpleName());
+            }
+        });
+        btnAct = view.findViewById(R.id.btn_call_act);
+        btnAct.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(), MainActivity2.class);
+                startActivity(intent);
             }
         });
     }
